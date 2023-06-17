@@ -24,7 +24,11 @@ body {
   font-size: 40px;
   font-weight: 200;
 }
-
+hr {
+  margin-bottom: 30px;
+  width: 300px;
+  margin: 0px auto 30px auto;
+}
 input {
   border: 1px solid rgba(252, 252, 252, 0.4);
   background-color: rgba(252, 252, 252, 0.2);
@@ -50,4 +54,8 @@ button {
   border-radius: 3px;
   width: 250px;
   font-size: 18px;
+}
+p {
+  text-align: center;
+  padding: 10px;
 }

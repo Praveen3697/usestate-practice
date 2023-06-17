@@ -36,7 +36,8 @@ function App() {
 
 */
 
-// More advanced approach
+/*
+ More advanced approach
 
 function App() {
   const [fullName, setFullName] = useState({
@@ -82,6 +83,77 @@ function App() {
           type="text"
           placeholder="Last name"
           value={fullName.lName}
+        />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
+}
+
+*/
+
+function App() {
+  const [contact, setContact] = useState({
+    fName: "",
+    lName: "",
+    email: "",
+  });
+
+  function handleChange(e) {
+    // object destructuring
+    const { name, value } = e.target;
+
+    setContact((prevValue) => {
+      if (name === "fName") {
+        return {
+          fName: value,
+          lName: prevValue.lName,
+          email: prevValue.email,
+        };
+      } else if (name === "lName") {
+        return {
+          fName: prevValue.fName,
+          lName: value,
+          email: prevValue.email,
+        };
+      } else if (name === "email") {
+        return {
+          fName: prevValue.fName,
+          lName: prevValue.lName,
+          email: value,
+        };
+      }
+    });
+  }
+
+  return (
+    <div className="container">
+      <h1>
+        Hello {contact.fName} {contact.lName}
+      </h1>
+      <p>{contact.email}</p>
+      <hr />
+      <form>
+        <input
+          name="fName"
+          onChange={handleChange}
+          type="text"
+          placeholder="First name"
+          value={contact.fName}
+        />
+        <input
+          name="lName"
+          onChange={handleChange}
+          type="text"
+          placeholder="Last name"
+          value={contact.lName}
+        />
+        <input
+          name="email"
+          onChange={handleChange}
+          type="email"
+          placeholder="Email"
+          value={contact.email}
         />
         <button type="submit">Submit</button>
       </form>
