@@ -104,11 +104,13 @@ function App() {
     const { name, value } = e.target;
 
     setContact((prevValue) => {
+      /*
       if (name === "fName") {
         return {
           fName: value,
           lName: prevValue.lName,
           email: prevValue.email,
+          fName: "cgsgdg",
         };
       } else if (name === "lName") {
         return {
@@ -123,6 +125,13 @@ function App() {
           email: value,
         };
       }
+      */
+
+      //  with destructuring
+      return {
+        ...prevValue,
+        [name]: value,
+      };
     });
   }
 
